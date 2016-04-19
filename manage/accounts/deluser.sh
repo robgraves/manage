@@ -1,5 +1,5 @@
 #! /bin/bash
-ttl="Delete User"
+ttl="Delete Student"
 
 students=`cat /etc/passwd|sed -n '/^.*:.*:.*:1006.*$/p'|cut -d ':' -f 1`
 if [ -z "$students" ]; then
@@ -12,7 +12,7 @@ fi
 username=$(whiptail --backtitle "$back_title" --title "$ttl" --inputbox "Username" $inp_dim "" 3>&1 1>&2 2>&3)
 [[ -z "$username" ]] && exit 1
 
-whiptail --backtitle "$back_title" --title "$ttl" --yesno  "\n$USER, are you sure you want to delete ${username}?\n" $yn_dim
+whiptail --backtitle "$back_title" --title "$ttl" --yesno  "\n$USER, are you sure you want to delete ${username}?\nThis will permenantly delete all of ${username}'s data" $yn_dim
 [[ "$?" -eq 1 ]] && exit 1
 
 if [ -n `groups $username|egrep "admin|sudo"` ]; then
@@ -35,7 +35,7 @@ if [ "$errno" -ne 0 ]; then
 	exit 1
 
 else
-
+	sudo rm -f /var/log/samba/log.${username} 1>/dev/null
 	whiptail --backtitle "$back_title" --title "$ttl" --msgbox "\nUser deleted successfully!\n" $msg_dim
 fi
 

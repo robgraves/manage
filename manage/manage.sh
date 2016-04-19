@@ -13,10 +13,10 @@ export full_path="/home/$USER/src/devel/manage/"	##Tyler and new Matt path
 #export full_path="/home/$USER/devel/manage/"		##Matt's version of path
 #export full_path="/home/$USER/manage/"     		##Barb version of path
 
-sudo chgrp -R admin /home/* 1>/dev/null
+#sudo chgrp -R admin /home/* 1>/dev/null
 function manage(){
 
-	initialize
+	#initialize
 
 option="Go!"
 while [ "$option" != "Q" ]; do
@@ -40,6 +40,9 @@ while [ "$option" != "Q" ]; do
 			
 			elif [ "$option" == "X" ]; then
 						diskusage	
+			
+			elif [ "$option" == "L" ]; then
+						viewlog	
 
 			fi	
 			
@@ -65,6 +68,9 @@ while [ "$option" != "Q" ]; do
 			
 			elif [ "$option" == "X" ]; then
 						admin_diskusage	
+
+			elif [ "$option" == "L" ]; then
+						admin_viewlog	
 
 			fi	
 			
@@ -128,10 +134,14 @@ function diskusage(){
 bash "${full_path}accounts/diskusage.sh"
 }
 
+function viewlog(){
+bash "${full_path}accounts/viewlog.sh"
+}
+
 ## Instructor Accounts
 
 function admin_accounts(){
-eval option=`bash "${full_path}accounts/account.sh"`
+eval option=`bash "${full_path}admin_accounts/account.sh"`
 }
 
 function admin_adduser(){
@@ -156,6 +166,10 @@ bash "${full_path}admin_accounts/viewusers.sh"
 
 function admin_diskusage(){
 bash "${full_path}admin_accounts/diskusage.sh"
+}
+
+function admin_viewlog(){
+bash "${full_path}admin_accounts/viewlog.sh"
 }
 
 ## Services

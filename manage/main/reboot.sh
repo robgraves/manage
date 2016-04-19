@@ -8,7 +8,7 @@ for ((i=0; i<=100; i+=5)); do
 	echo $i
 	sleep .1
 	
-done |$(whiptail --backtitle "$back_title" --title "$ttl" --gauge "Deinitializing..." $bar_dim 1>&2 3>&1 2>&3) 
+done |$(whiptail --backtitle "$back_title" --title "$ttl" --gauge "Putting hamster down for a nap..." $bar_dim 1>&2 3>&1 2>&3) 
 
 (sleep 5; sudo reboot) &
 

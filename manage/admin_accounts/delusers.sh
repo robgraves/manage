@@ -1,10 +1,10 @@
 #! /bin/bash
-ttl="Remove Students"
+ttl="Remove All Instructors"
 
-students=`cat /etc/passwd|sed -n '/^.*:.*:.*:1006.*$/p'|cut -d ':' -f 1`
+students=`cat /etc/passwd|sed -n '/^.*:.*:.*:1007.*$/p'|cut -d ':' -f 1`
 if [ -z "$students" ]; then
 
-whiptail --msgbox --backtitle "$back_title"  --title "$ttl" "There are currently no student accounts in the system!" $msg_dim
+whiptail --msgbox --backtitle "$back_title"  --title "$ttl" "There are currently no Instructor accounts in the system!" $msg_dim
 exit 1
 
 fi
@@ -26,6 +26,7 @@ for username in $students; do
 
 	sudo smbpasswd -x "$username" 1>/dev/null 
 	sudo deluser --remove-home "$username" 1>/dev/null
+	sudo rm -f /var/log/samba/log.${username} 1>/dev/null
 	errno="$?"
 done
 	

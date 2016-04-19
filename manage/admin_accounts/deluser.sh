@@ -1,10 +1,10 @@
 #! /bin/bash
-ttl="Delete User"
+ttl="Delete Instructor"
 
-students=`cat /etc/passwd|sed -n '/^.*:.*:.*:1006.*$/p'|cut -d ':' -f 1`
+students=`cat /etc/passwd|sed -n '/^.*:.*:.*:1007.*$/p'|cut -d ':' -f 1`
 if [ -z "$students" ]; then
 
-whiptail --msgbox --backtitle "$back_title"  --title "$ttl" "There are currently no student accounts in the system!" $msg_dim
+whiptail --msgbox --backtitle "$back_title"  --title "$ttl" "There are currently no instructor accounts in the system!" $msg_dim
 exit 1
 
 fi
@@ -15,13 +15,13 @@ username=$(whiptail --backtitle "$back_title" --title "$ttl" --inputbox "Usernam
 whiptail --backtitle "$back_title" --title "$ttl" --yesno  "\n$USER, are you sure you want to delete ${username}?\n" $yn_dim
 [[ "$?" -eq 1 ]] && exit 1
 
-if [ -n `groups $username|egrep "admin|sudo"` ]; then
+if [ -n "`cat /etc/passwd|grep "$username"|sed -n '/^.*:.*:.*:1007.*$/p'`" ]; then
 	
 	sudo smbpasswd -x "$username" 1>/dev/null 
 	sudo deluser --remove-home "$username" 1>/dev/null
 	errno="$?"
 else
-	errno=0;
+	errno=6;
 fi
 
 if [ "$errno" -ne 0 ]; then
@@ -35,7 +35,7 @@ if [ "$errno" -ne 0 ]; then
 	exit 1
 
 else
-
+	sudo rm -f /var/log/samba/log.${username} 1>/dev/null
 	whiptail --backtitle "$back_title" --title "$ttl" --msgbox "\nUser deleted successfully!\n" $msg_dim
 fi
 

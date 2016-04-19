@@ -1,5 +1,5 @@
 #! /bin/bash
-ttl="Add User"
+ttl="Add Student"
 
 username=$(whiptail --backtitle "$back_title" --title "$ttl" --inputbox "Username" $inp_dim "" 3>&1 1>&2 2>&3)
 [[ -z "$username" ]] && exit 1
@@ -29,6 +29,7 @@ else
 		whiptail --backtitle "$back_title" --title "$ttl" --msgbox "\nFailed to add user!\n" $msg_dim
 		exit 1
 	fi
+	sudo touch /var/log/samba/log.${username} 1>/dev/null
 	whiptail --backtitle "$back_title" --title "$ttl" --msgbox "\nUser successfully added!\n" $msg_dim
 
 fi

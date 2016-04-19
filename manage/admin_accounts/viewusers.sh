@@ -1,4 +1,4 @@
-ttl="View Instructors"
+ttl="Instructor listing"
 
 instructors=`cat /etc/passwd|sed -n '/^.*:.*:.*:1007.*$/p'|cut -d ':' -f 1`
 if [ -z "$instructors" ]; then

@@ -1,4 +1,4 @@
-ttl="View Users"
+ttl="Student listing"
 
 students=`cat /etc/passwd|sed -n '/^.*:.*:.*:1006.*$/p'|cut -d ':' -f 1`
 if [ -z "$students" ]; then
