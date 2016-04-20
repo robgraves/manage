@@ -1,7 +1,7 @@
 #!/bin/bash
 ttl="Restart Services"
 
-whiptail --backtitle "$back_title" --title "$ttl" --yesno "$USER, are you sure you want to restart samba services?\n\nUsers authenticated through samba will lose connection." $yn_dim
+whiptail --backtitle "$back_title" --title "$ttl" --yesno "$USER, restart samba services?\n\nUsers authenticated through samba will lose connection." $yn_dim
 [[ "$?" == 1 ]] && exit 1
 
 sudo /etc/init.d/samba restart 1>/dev/null &
