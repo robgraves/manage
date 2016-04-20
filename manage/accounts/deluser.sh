@@ -11,6 +11,7 @@ fi
 
 username=$(whiptail --backtitle "$back_title" --title "$ttl" --inputbox "Username" $inp_dim "" 3>&1 1>&2 2>&3)
 [[ -z "$username" ]] && exit 1
+username=`echo "$username"|tr '[:upper:]' '[:lower:]'`
 
 whiptail --backtitle "$back_title" --title "$ttl" --yesno  "\n$USER, are you sure you want to delete ${username}?\nThis will permenantly delete all of ${username}'s data" $yn_dim
 [[ "$?" -eq 1 ]] && exit 1

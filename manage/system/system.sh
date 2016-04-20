@@ -1,6 +1,6 @@
-## Main Menu ##
+## System Menu ##
 
-echo $(whiptail --backtitle "$back_title" --title "Main Menu" --menu "Welcome, $USER" $menu_dim "A" "Student Accounts" "I" "Instructor Accounts" "S" "System Menu" "?" "Info" "Q" "Quit" --notags --nocancel --ok-button " Select " 3>&1 1>&2 2>&3)
+echo $(whiptail --backtitle "$back_title" --title "System Menu" --menu "" $menu_dim "R" "Restart Services" "B" "Reboot Server" "Q" "Quit" --notags --ok-button " Select " --cancel-button " Back " 3>&1 1>&2 2>&3)
 
 # Open a file descriptor(3) that points to stdout(1): 3>&1
 # Now have stdout(1) point to stderr(2): 1>&2

@@ -78,14 +78,25 @@ while [ "$option" != "Q" ]; do
 			[[ "$option" == "Q" ]] && exit 1
 		done
 
-	elif	[ "$option" == "R" ]; then
+	elif	[ "$option" == "S" ]; then
+		while true
+		do
+			
+					system	
+			if	[ "$option" == "R" ]; then
 					smb_restart
 	
-	elif	[ "$option" == "B" ]; then
+			elif	[ "$option" == "B" ]; then
 					reboot
 					[[ "$?" -eq 0 ]] && break	
-	elif	[ "$option" == "C" ]; then
-					credits
+			fi	
+			
+			[[ -z "$option" ]] && break
+			[[ "$option" == "Q" ]] && exit 1
+		done
+
+	elif	[ "$option" == "?" ]; then
+					info
 	fi
 done
 
@@ -172,19 +183,23 @@ function admin_viewlog(){
 bash "${full_path}admin_accounts/viewlog.sh"
 }
 
-## Services
+## System Menu
+
+function system(){
+eval option=`bash "${full_path}system/system.sh"`
+}
 
 function smb_restart(){
-bash "${full_path}main/sambarestart.sh"
+bash "${full_path}system/sambarestart.sh"
 }
 
 function reboot(){
-bash "${full_path}main/reboot.sh"
+bash "${full_path}system/reboot.sh"
 return $?
 }
 
-function credits(){
-bash "${full_path}main/credits.sh"
+function info(){
+bash "${full_path}main/info.sh"
 }
 
 # RUN!
