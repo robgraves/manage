@@ -35,6 +35,9 @@ while [ "$option" != "Q" ]; do
 			elif [ "$option" == "W" ]; then
 						delusers
 
+			elif [ "$option" == "P" ]; then
+						password
+
 			elif [ "$option" == "V" ]; then
 						viewusers	
 			
@@ -62,6 +65,9 @@ while [ "$option" != "Q" ]; do
 			
 			elif [ "$option" == "W" ]; then
 						admin_delusers
+
+			elif [ "$option" == "P" ]; then
+						admin_password
 
 			elif [ "$option" == "V" ]; then
 						admin_viewusers	
@@ -137,6 +143,10 @@ function delusers(){
 bash "${full_path}accounts/delusers.sh"
 }
 
+function password(){
+bash "${full_path}accounts/password.sh"
+}
+
 function viewusers(){
 bash "${full_path}accounts/viewusers.sh"
 }
@@ -169,6 +179,10 @@ bash "${full_path}admin_accounts/deluser.sh"
 
 function admin_delusers(){
 bash "${full_path}admin_accounts/delusers.sh"
+}
+
+function admin_password(){
+bash "${full_path}admin_accounts/password.sh"
 }
 
 function admin_viewusers(){

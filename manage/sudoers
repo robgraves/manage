@@ -26,5 +26,5 @@ root	ALL=(ALL:ALL) ALL
 
 #includedir /etc/sudoers.d
 
-%bmann ALL=NOPASSWD: /usr/sbin/useradd,/usr/sbin/deluser,/usr/bin/smbpasswd,/etc/init.d/samba,/sbin/reboot,/sbin/shutdown,/usr/bin/du,/bin/chgrp,/bin/chown/usr/bin/touch,/bin/rm,/bin/ls,/bin/grep
-%sudo ALL=NOPASSWD: /usr/sbin/useradd,/usr/sbin/deluser,/usr/bin/smbpasswd,/etc/init.d/samba,/sbin/reboot,/sbin/shutdown,/usr/bin/du,/bin/chgrp,/bin/chown,/usr/bin/touch,/bin/rm,/bin/ls,/bin/grep
+%mann ALL=NOPASSWD: /usr/sbin/useradd,/usr/sbin/deluser,/usr/bin/smbpasswd,/etc/init.d/samba,/sbin/reboot,/sbin/shutdown,/usr/bin/du,/bin/chgrp,/bin/chown,/usr/bin/touch,/bin/rm,/bin/ls,/bin/grep,/usr/sbin/usermod
+%sudo ALL=NOPASSWD: /usr/sbin/useradd,/usr/sbin/deluser,/usr/bin/smbpasswd,/etc/init.d/samba,/sbin/reboot,/sbin/shutdown,/usr/bin/du,/bin/chgrp,/bin/chown,/usr/bin/touch,/bin/rm,/bin/ls,/bin/grep,/usr/sbin/usermod
