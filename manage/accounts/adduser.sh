@@ -3,7 +3,15 @@ ttl="Add Student"
 
 username=$(whiptail --backtitle "$back_title" --title "$ttl" --inputbox "Username" $inp_dim "" 3>&1 1>&2 2>&3)
 [[ -z "$username" ]] && exit 1
+
 username=`echo "$username"|tr '[:upper:]' '[:lower:]'`
+username=`echo "$username"|tr -s " "`
+
+if [[ "$username" == *['!'\.@\#\$%^\&*()_+\/\\\}\{}\]\[\)\(]* ]]; then
+whiptail --backtitle "$back_title" --title "$ttl" --msgbox "\nERROR: Usernames should not contain special characters!\n\nSpecial characters include \"'!'.@#$%^&*()_+/\\}{}][)(\"" 10 80
+exit 1 
+fi
+
 password=$(whiptail --backtitle "$back_title" --title "$ttl" --inputbox "Password" $inp_dim "" 3>&1 1>&2 2>&3)
 [[ -z "$password" ]] && exit 1
 
