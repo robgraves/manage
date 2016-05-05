@@ -1,7 +1,7 @@
 #! /bin/bash
 
 # Globals
-export back_title="Server Manager 2016"
+export back_title="Server Manager 2016 - Award Winner of CCC's 2016 Sustainability Research Fair"
 export menu_dim="25 30 10"
 export msg_dim="8 80"
 export inp_dim="10 60"
@@ -9,8 +9,8 @@ export yn_dim="10 60"
 export chk_dim="25 45 10"
 export bar_dim="6 60 0"
 export view_dim="25 45"
-export full_path="/home/$USER/src/devel/manage/"	##Tyler and new Matt path
-#export full_path="/home/$USER/devel/manage/"		##Matt's version of path
+#export full_path="/home/$USER/src/devel/manage/"	##Tyler and new Matt path
+export full_path="/home/$USER/git/manage/manage/"		    ##Matt's version of path
 #export full_path="/home/$USER/manage/"     		##Barb version of path
 
 #sudo chgrp -R admin /home/* 1>/dev/null

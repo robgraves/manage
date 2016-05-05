@@ -5,6 +5,9 @@ Purpose: A manage script for the samba server located in the mac lab which provi
 Project Managers: mp010784, tmosgrov
 Supervisor: Wedge
 
+"Award Winner of Corning Community College's 2016 Sustainability Research Fair"
+--Matthew Page and Tyler Mosgrove 05/04/2016
+
 ~02/29/16~
 Birth of the repo. Currently, this project is near exiting the conceptual initiation stage, and will be in its design phase soon.
 
