@@ -3,6 +3,8 @@ Project Name: Manage Script
 Purpose: A manage script for the samba server located in the mac lab which provides a front-end GUI for handling admin like responsibilities.
 
 Project Managers: mp010784, tmosgrov
+mp010784 = Matthew Page (robgraves) https://github.com/robgraves
+tmosgrov = Tyler Mosgrove (nullist) https://github.com/nullist
 Supervisor: Wedge
 
 "Award Winner of Corning Community College's 2016 Sustainability Research Fair"
